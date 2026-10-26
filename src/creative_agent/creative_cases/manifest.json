@@ -1,0 +1,11 @@
+{
+  "version": "2026.10.25-draft1",
+  "license": "AGPL-3.0-only",
+  "content_file": "cases.json",
+  "content_sha256": "e2b56c9a586dc5fdd7b4a464a3f61c36f5b7a88175373f8beb7831109eae52a8",
+  "provenance": "original_ai_assisted",
+  "not_performance_evidence": true,
+  "method_count": 30,
+  "example_count": 12,
+  "review_status": "pending_business_review"
+}

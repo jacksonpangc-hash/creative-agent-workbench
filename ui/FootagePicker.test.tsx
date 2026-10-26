@@ -1,0 +1,6 @@
+import {afterEach,expect,test,vi} from 'vitest';
+import {render,screen,fireEvent,cleanup} from '@testing-library/react';
+import '@testing-library/jest-dom/vitest';
+import FootagePicker from './scripts/FootagePicker';
+afterEach(()=>{cleanup();vi.unstubAllGlobals()});
+test('footage is chosen explicitly with file and interval before linking to a script row',()=>{const choose=vi.fn();vi.stubGlobal('fetch',vi.fn(async()=>new Response('[]')));render(<FootagePicker base="/projects/A" assets={[{id:'one',title:'开箱',media_type:'video',inspection:'ready',metadata:{duration_ms:9000}},{id:'two',title:'掰开',media_type:'video',inspection:'ready',metadata:{duration_ms:12000}}]} onChoose={choose} onClose={vi.fn()}/>);expect(screen.getByRole('button',{name:'使用所选片段'})).toBeDisabled();fireEvent.change(screen.getByRole('combobox',{name:'选择自有素材'}),{target:{value:'two'}});fireEvent.change(screen.getByRole('spinbutton',{name:'片段开始秒数'}),{target:{value:'2.2'}});fireEvent.change(screen.getByRole('spinbutton',{name:'片段结束秒数'}),{target:{value:'4.5'}});fireEvent.click(screen.getByRole('button',{name:'使用所选片段'}));expect(choose).toHaveBeenCalledWith(expect.objectContaining({asset_id:'two',start_ms:2200,end_ms:4500}));});

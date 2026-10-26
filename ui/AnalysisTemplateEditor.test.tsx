@@ -1,0 +1,12 @@
+import {afterEach,expect,test,vi} from 'vitest';
+import {render,screen,fireEvent,cleanup,waitFor} from '@testing-library/react';
+import '@testing-library/jest-dom/vitest';
+import AnalysisTemplateEditor from './strategy/AnalysisTemplateEditor';
+afterEach(()=>{cleanup();vi.unstubAllGlobals()});
+test('template keeps stable field ids, types, order and save location without starting analysis',async()=>{
+ const writes:any[]=[];vi.stubGlobal('fetch',vi.fn(async(url,init)=>{writes.push({url,body:JSON.parse(init.body)});return new Response(JSON.stringify({...writes.at(-1).body,id:'t',version:3}))}));const saved=vi.fn();
+ render(<AnalysisTemplateEditor base="/projects/p" value={{id:'t',version:2,title:'开头比较',definitions:[{field_id:'hook',name:'钩子',level:'overall',type:'text',basis:'inferred'},{field_id:'duration',name:'时长',level:'shot',type:'number',basis:'observed'}]}} onSaved={saved}/>);
+ fireEvent.change(screen.getByRole('textbox',{name:'字段1名称'}),{target:{value:'开头方式'}});fireEvent.click(screen.getByRole('button',{name:'字段2上移'}));fireEvent.click(screen.getByRole('button',{name:'保存解析模板'}));await waitFor(()=>expect(writes).toHaveLength(1));expect(writes[0].body).toMatchObject({expected_version:2,fields:['时长','开头方式'],definitions:[expect.objectContaining({field_id:'duration',type:'number',level:'shot'}),expect.objectContaining({field_id:'hook'})]});expect(writes[0].url).toContain('/templates/t');expect(await screen.findByText(/已保存到解析模板/)).toBeInTheDocument();fireEvent.click(screen.getByRole('button',{name:'立即使用'}));expect(saved).toHaveBeenCalledWith(expect.objectContaining({id:'t',version:3}));
+});
+
+test('editing a just-saved new template writes a new version of the same record',async()=>{const writes:any[]=[];vi.stubGlobal('fetch',vi.fn(async(url,init)=>{const body=JSON.parse(init.body);writes.push({url,body});return new Response(JSON.stringify({...body,id:'new-template',version:writes.length}))}));render(<AnalysisTemplateEditor base="/projects/p" value={{title:'新模板',fields:['开头']}} onSaved={vi.fn()}/>);fireEvent.click(screen.getByRole('button',{name:'保存解析模板'}));await screen.findByRole('button',{name:'立即使用'});fireEvent.change(screen.getByRole('textbox',{name:'字段1名称'}),{target:{value:'开头钩子'}});fireEvent.click(screen.getByRole('button',{name:'保存解析模板'}));await waitFor(()=>expect(writes).toHaveLength(2));expect(writes[1].url).toContain('/templates/new-template');expect(writes[1].body.expected_version).toBe(1)});

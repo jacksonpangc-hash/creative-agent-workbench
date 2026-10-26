@@ -1,0 +1,109 @@
+{
+  "version": "0.5.5",
+  "base_commit": "838556cdf5772bafdaa666303aad02d2cba7e247",
+  "date": "2026-10-26",
+  "PRODUCT_WORKFLOW_READY": false,
+  "COMMERCIAL_DISTRIBUTION_READY": false,
+  "prior_gates_preserved": [
+    "AC01–AC64",
+    "CDU",
+    "G1",
+    "G2"
+  ],
+  "requirements": {
+    "R01": "IMPLEMENTED_LOCAL_CHECKED",
+    "R02": "IMPLEMENTED_LOCAL_CHECKED",
+    "R03": "IMPLEMENTED_LOCAL_CHECKED",
+    "R04": "IMPLEMENTED_LOCAL_CHECKED",
+    "R05": "IMPLEMENTED_LOCAL_CHECKED",
+    "R06": "PARTIAL",
+    "R07": "IMPLEMENTED_LOCAL_CHECKED",
+    "R08": "IMPLEMENTED_LOCAL_CHECKED",
+    "R09": "IMPLEMENTED_LOCAL_CHECKED",
+    "R10": "EXISTING_CAPABILITY_PRESERVED",
+    "R11": "REAL_CHAIN_NOT_ACCEPTED",
+    "R12": "IMPLEMENTED_LOCAL_CHECKED",
+    "R13": "PARTIAL_EXISTING_RECOVERY_PRESERVED",
+    "R14": "NOT_RUN_REAL_QUALITY",
+    "R15": "PARTIAL",
+    "R16": "NOT_VALIDATED"
+  },
+  "data_source": {
+    "decision": "attributed_offline_structural_projection",
+    "records": 647,
+    "source_commit": "6afd5abb040768c7cb41a70b835bb0711971941e",
+    "performance_evidence": false,
+    "remote_collector_recovered": false,
+    "paid_clipcat_integration": false
+  },
+  "new_paid_calls": {
+    "model": false,
+    "cmm": false,
+    "clipcat": false
+  },
+  "validation": {
+    "browser": "PASS_SYNTHETIC_LOCAL_ONLY",
+    "design_detect": "EMPTY_FINDINGS_ON_SELECTED_FILES",
+    "backend": {
+      "result": "PASS",
+      "passed": 197,
+      "command": "affected 12-file batch; evidence/backend-tests.txt"
+    },
+    "ui": {
+      "result": "PASS_WITH_FOCUSED_RECHECK",
+      "batch_passed": 102,
+      "batch_total": 103,
+      "issue": "initial async setup exceeded 1-second test wait during loaded host execution",
+      "resolution": "setup wait set to 5 seconds; focused file 4/4 passed",
+      "new_behavior_and_review_fixes": "targeted suites passed; full historic matrix not rerun",
+      "additional_template_regressions_passed": 2,
+      "additional_real_chunk_mapping_regressions_passed": 4
+    },
+    "packaged_worker": {
+      "result": "PASS",
+      "offline_library_records": 647,
+      "media_range": "206",
+      "draft_identity_schema": "PASS",
+      "exports": [
+        "docx",
+        "xlsx",
+        "pdf",
+        "md",
+        "json"
+      ],
+      "external_model_calls": false,
+      "actual_app_worker": "PASS",
+      "speech_fixture": "official whisper.cpp jfk.wav; packaged English speech chain only, not Chinese accuracy acceptance"
+    },
+    "mac_intel_candidate": {
+      "result": "BUILT_INTERNAL_CANDIDATE",
+      "format": "onedir",
+      "version": "0.5.5",
+      "app_worker_smoke": "PASS_INCLUDING_BUNDLED_ASR",
+      "native_startup": "PASS_ISOLATED_WORKSPACE",
+      "startup_seconds_single_probe": 7.79,
+      "owned_processes_cleaned": true,
+      "ad_hoc_integrity": "verified",
+      "formal_signing": false,
+      "clean_install": "NOT_RUN",
+      "native_full_gui": "NOT_RUN"
+    },
+    "real_quality": "NOT_RUN",
+    "windows": "NOT_RUN",
+    "mac_arm": "NOT_RUN",
+    "commercial_signing": "NOT_AVAILABLE",
+    "frontend_build": {
+      "result": "PASS",
+      "latest_js": "index-oTLY8sqS.js",
+      "bundle_size_warning": ">500kB"
+    },
+    "directory_packaging": {
+      "result": "PASS",
+      "passed": 5,
+      "command": ".venv/bin/python -m pytest tests/test_directory_bundle.py -q"
+    },
+    "design_detect_final_fragment": "EMPTY_FINDINGS"
+  },
+  "publication_scope": "sanitized_final_source_snapshot",
+  "original_binary_implementation_commit": "c2c2b780bf826f356519d33a57dc4a7840f4f004"
+}

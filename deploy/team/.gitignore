@@ -1,0 +1,4 @@
+private/
+.env
+*.dump
+*.tar

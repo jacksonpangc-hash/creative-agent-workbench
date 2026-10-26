@@ -1,0 +1,6 @@
+import type {Fragment} from './LinkedMediaDetails';
+type Item=Record<string,any>;
+const clock=(ms:number)=>(ms/1000).toFixed(1)+'秒';
+export default function FragmentMatches({matches,onOpen,onSelect}:{matches:Item[],onOpen:(fragment:Fragment)=>void,onSelect:(fragment:Fragment)=>void}){
+ return <section aria-label="匹配片段">{matches.map((r,n)=>{const text=r.statement||r.text||'',kind=r.kind||r.evidence_kind||r.type,visual=kind==='visual'||r.content_basis==='已分析画面',spoken=['transcript','supplier_transcript'].includes(kind)||r.content_basis==='文字稿';const start=r.start_ms,end=r.end_ms,valid=(visual||spoken)&&!!r.asset_id&&Number.isFinite(start)&&Number.isFinite(end)&&end>start&&start>=0;const fragment:Fragment={asset_id:r.asset_id,start_ms:start,end_ms:end,observation:text,provenance:visual?'sampled_frames':'subtitle'};return <article className="script-row" key={r.id||n}><h3>{r.title}</h3><p>{text}</p><p className="fine">{valid?`${clock(start)}–${clock(end)}`:'整条内容，暂无可定位时间'} · {r.pool==='own'?'自有镜头候选':'表达参考'} · {r.suitable_reason}</p><div className="inline"><button className="text-button" disabled={!valid} onClick={()=>onOpen(fragment)}>回看片段</button><button className="quiet bordered" disabled={!valid} onClick={()=>onSelect(fragment)}>选入分析片段</button></div></article>})}</section>
+}

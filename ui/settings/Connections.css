@@ -1,0 +1,13 @@
+.model-services .model-row { gap: 12px; align-items: flex-start; }
+.model-services .model-row > div { flex: 1; min-width: 0; }
+.model-services .model-row small { display: block; margin-top: 4px; overflow-wrap: anywhere; color: var(--text-secondary, var(--muted)); }
+.model-services .model-list { margin-bottom: 20px; }
+.model-connection-form { padding: 20px 0; border-top: 1px solid var(--border, var(--line)); border-bottom: 1px solid var(--border, var(--line)); }
+.model-connection-form h4 { margin-top: 0; }
+.model-capabilities { color: var(--text-secondary, var(--muted)); }
+.model-services details, .analysis-preferences details, .browser-connection details { margin: 18px 0; }
+.model-services summary, .analysis-preferences summary, .browser-connection summary { cursor: pointer; min-height: 32px; }
+.analysis-preferences, .browser-connection { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border, var(--line)); }
+.browser-connection :is(input, code) { user-select: text; }
+.browser-connection .field { margin-top: 12px; }
+@media (max-width: 600px) { .model-services .model-row { flex-wrap: wrap; } .model-services .model-row > div { flex-basis: 100%; } }

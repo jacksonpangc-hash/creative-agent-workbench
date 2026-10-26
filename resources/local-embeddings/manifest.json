@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "model_id": "BAAI/bge-small-zh-v1.5",
+  "revision": "46fbe35fd4374a00fee7de77dfddaeb6dd6a2c59",
+  "tokenizer_revision": "46fbe35fd4374a00fee7de77dfddaeb6dd6a2c59",
+  "source": "https://huggingface.co/Qdrant/bge-small-zh-v1.5/tree/46fbe35fd4374a00fee7de77dfddaeb6dd6a2c59",
+  "license": "MIT",
+  "license_source": "https://raw.githubusercontent.com/FlagOpen/FlagEmbedding/master/LICENSE",
+  "dimensions": 512,
+  "normalized": true,
+  "query_prefix": "",
+  "chunk_rule_version": "tokenizer-offset-448-overlap48-v1",
+  "runtime_versions": {
+    "fastembed": "0.7.3",
+    "qdrant-client": "1.15.1",
+    "onnxruntime": "1.23.2",
+    "tokenizers": "0.23.3"
+  },
+  "files": {
+    "model_optimized.onnx": "1294ea4b6331115a353d81f96b85e8c8d7fdcc284453d5b2fab5b016230aad38",
+    "source_revision.json": "bdc9b56950d7602e0ce258b0ee501e1e3c944f701fe75f44039957c465418458",
+    "LICENSE": "587a673933425dbc36ec61268d3b954051b2d3ef3c9b322ede357976055ffdd5",
+    "tokenizer_config.json": "e6f3b96db926a37d4039995fbf5ad17de158dfb8f6343d607e4dbaad18d75f5a",
+    "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+    "config.json": "9088751d39abbf86ec3d19ffca92ad62ad19075f7e59712e6c71217fa125d1d3",
+    "tokenizer.json": "48cea5d44424912a6fd1ea647bf4fe50b55ab8b1e5879c3275f80e339e8fae26",
+    "README.md": "d8d7a46d41a1a37fe4f0a5f637bf55c649310185329127d8a2204632e480be17",
+    "vocab.txt": "45bbac6b341c319adc98a532532882e91a9cefc0329aa57bac9ae761c27b291c"
+  }
+}

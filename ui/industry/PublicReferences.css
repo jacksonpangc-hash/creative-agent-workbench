@@ -1,0 +1,147 @@
+.public-references {
+  color: var(--text, #302a38);
+}
+
+.public-references .reference-import {
+  margin: 20px 0;
+  padding: 18px;
+  border: 1px solid var(--line, #e6e8ef);
+  border-radius: 10px;
+  background: var(--panel, #fff);
+}
+
+.public-references .reference-import h4 { margin-top: 0; }
+.public-references .reference-import .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.public-references .reference-preview {
+  border-top: 1px solid var(--line, #e6e8ef);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+.public-references .reference-preview-list {
+  padding-left: 24px;
+  max-height: 360px;
+  overflow: auto;
+  margin: 12px 0;
+}
+.public-references .reference-preview-list li {
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--line, #e6e8ef);
+}
+
+.public-references .reference-url { overflow-wrap: anywhere; }
+.public-references .reference-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.public-references .reference-card-head > div:last-child { min-width: 0; }
+.public-references .reference-card-head h4 {
+  margin: 0 0 6px;
+  overflow-wrap: anywhere;
+}
+.public-references .reference-cover {
+  flex: 0 0 64px;
+  min-height: 86px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg, #f5f6f8);
+  border: 1px solid var(--line, #e6e8ef);
+  border-radius: 7px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--muted, #6b6078);
+}
+.public-references img.reference-cover {
+  width: 64px;
+  height: 86px;
+  object-fit: cover;
+}
+
+.public-references button,
+.public-references summary,
+.public-references .actions a { min-height: 44px; }
+.public-references .check-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+.public-references .reference-import button { padding: 10px 14px; }
+.public-references .reference-import details { margin: 12px 0; }
+.public-references .reference-import select { max-width: 320px; }
+.public-references .reference-import input[type=file] { max-width: 100%; }
+
+.public-references :is(h3, h4, label) { color: var(--text, #302a38); }
+.public-references :is(.fine, .empty, .check-label),
+.focused-app .public-references :is(.fine, .empty, .check-label) {
+  color: var(--muted, #6b6078) !important;
+}
+.public-references :is(input, textarea, select) {
+  background: var(--panel, #fff);
+  border-color: var(--line, #e6e8ef);
+  color: var(--text, #302a38);
+}
+.public-references .script-row {
+  background: var(--panel, #fff);
+  border-color: var(--line, #e6e8ef);
+}
+.public-references :is(button, .actions a) {
+  border: 1px solid var(--line, #e6e8ef);
+  padding: 9px 12px;
+  background: var(--panel, #fff);
+  color: var(--accent, #6236e8);
+}
+.public-references :is(a, summary) { color: var(--accent, #6236e8); }
+.public-references :is(button, .actions a):not(:disabled):hover {
+  background: #f2ecfc;
+  color: var(--accent, #6236e8);
+  border-color: var(--accent, #6236e8);
+}
+.public-references .error { color: #a12d43; }
+.public-references button[aria-pressed=true] {
+  background: var(--accent, #6236e8);
+  border-color: var(--accent, #6236e8);
+  color: #fff;
+}
+.public-references button[aria-pressed=true]:not(:disabled):hover {
+  background: #5129c5;
+  color: #fff;
+}
+.public-references button[aria-pressed]:disabled,
+.public-references :is(button, input, textarea, select):disabled {
+  opacity: 1;
+  color: #665c73;
+  background: #eceaf1;
+  border-color: #d8d3e0;
+  cursor: not-allowed;
+}
+.public-references :is(button, a, input, textarea, select, summary):focus-visible {
+  outline: 2px solid var(--accent, #6236e8);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .public-references .reference-import { padding: 12px; }
+  .public-references .reference-card-head { align-items: flex-start; }
+  .public-references .reference-cover { flex-basis: 52px; }
+  .public-references .actions { gap: 8px; }
+}
+
+.public-references .reference-source-tabs { display: flex; gap: 8px; margin: 16px 0 20px; border-bottom: 1px solid var(--border, var(--line)); padding-bottom: 12px; }
+.public-references .reference-source-tabs [aria-selected=true] { background: var(--accent-soft, #f0edfc); color: var(--accent); border-color: transparent; }
+.public-references .reference-states { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 16px 0 8px; font-size: 13px; color: var(--text-secondary, var(--muted)); }
+.public-references .reference-fetch { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+.public-references .reference-file-options { margin: 16px 0; }
+.public-references .reference-file-options summary { cursor: pointer; }
+.public-references .reference-media-failure { color: var(--danger, #b42318); }
+.public-references .browser-connection { border-top: 1px solid var(--border, var(--line)); padding-top: 18px; margin-top: 24px; }
+.public-references #add-reference-panel[hidden] { display: none; }
+@media (max-width: 600px) { .public-references .reference-source-tabs { flex-wrap: wrap; } }

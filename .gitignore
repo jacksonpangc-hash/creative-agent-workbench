@@ -1,0 +1,27 @@
+.venv
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+node_modules
+dist/
+target/
+.state/
+.superpowers/
+.env
+.env.*
+!.env.example
+*.sqlite*
+*.log
+.DS_Store
+src-tauri/binaries/
+test-results/
+
+*.tsbuildinfo
+src-tauri/gen/
+
+# Local agent tooling and browser evidence are not product sources.
+.agents/
+.playwright-cli/

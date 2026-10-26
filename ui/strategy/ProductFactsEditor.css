@@ -1,0 +1,10 @@
+.product-facts .product-description { margin-bottom: 20px; }
+.product-facts summary { cursor: pointer; min-height: 32px; }
+.product-facts .form-grid { margin: 20px 0; }
+.product-facts .claim-row { margin: 12px 0; padding: 16px; border: 1px solid var(--border, var(--line)); border-radius: var(--radius-control, 8px); }
+.product-facts .claim-row legend { padding: 0 6px; }
+.product-facts .claim-row details { margin: 12px 0; }
+.product-facts .claim-unconfirmed { color: var(--text-secondary, var(--muted)); margin: 8px 0; }
+.product-document-button { position: relative; padding: 10px 14px; cursor: pointer; border: 1px solid var(--border, var(--line)); border-radius: var(--radius-control, 8px); overflow: hidden; }
+.product-document-button input { position: absolute; width: 100%; height: 100%; opacity: 0; inset: 0; cursor: pointer; }
+.product-document-button:focus-within { outline: 2px solid var(--accent); outline-offset: 3px; }

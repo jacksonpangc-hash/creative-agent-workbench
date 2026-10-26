@@ -1,0 +1,58 @@
+# Operator supplies secrets/ files locally. This file creates no credentials.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: licensing
+      POSTGRES_USER: licensing
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    secrets: [postgres_password]
+    volumes: [license_db:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U licensing -d licensing']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+  licensing:
+    build:
+      context: ../..
+      dockerfile: deploy/license/Dockerfile
+    environment:
+      LICENSE_DATABASE_URL_FILE: /run/secrets/database_url
+      LICENSE_SIGNING_KEY_FILE: /run/secrets/signing_key
+      LICENSE_ADMIN_HASH_FILE: /run/secrets/admin_hash
+      LICENSE_ADMIN_TOTP_FILE: /run/secrets/admin_totp
+      LICENSE_PUBLIC_URL: ${LICENSE_PUBLIC_URL:?Set a real HTTPS licensing origin}
+      LICENSE_PUBLIC_HOST: ${LICENSE_PUBLIC_HOST:?Set the same real licensing domain}
+      LICENSE_TLS_CERT_FILE: /run/secrets/tls_certificate
+    secrets: [database_url, signing_key, admin_hash, admin_totp, tls_certificate]
+    depends_on:
+      postgres: {condition: service_healthy}
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    restart: unless-stopped
+  https:
+    image: nginx:1.27-alpine
+    ports: ['443:443']
+    environment:
+      LICENSE_PUBLIC_HOST: ${LICENSE_PUBLIC_HOST:?Set the same real licensing domain}
+      NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx
+      NGINX_ENVSUBST_FILTER: '^LICENSE_PUBLIC_HOST$'
+    volumes:
+      - ./nginx.conf.template:/etc/nginx/templates/nginx.conf.template:ro
+    secrets: [tls_certificate, tls_private_key]
+    depends_on: [licensing]
+    restart: unless-stopped
+volumes:
+  license_db:
+secrets:
+  postgres_password: {file: ./secrets/postgres-password}
+  database_url: {file: ./secrets/database-url}
+  signing_key: {file: ./secrets/signing-key.pem}
+  admin_hash: {file: ./secrets/admin-password.hash}
+  admin_totp: {file: ./secrets/admin-totp.base32}
+  tls_certificate: {file: ./secrets/fullchain.pem}
+  tls_private_key: {file: ./secrets/tls-private-key.pem}

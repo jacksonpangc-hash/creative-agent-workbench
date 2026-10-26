@@ -1,0 +1,35 @@
+name: Verify and package
+# The final snapshot is not a verified cross-platform release pipeline.
+# Keep this workflow available for an explicit future validation run.
+on: [workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, macos-15-intel, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - run: python -m pip install -e ".[dev]" pyinstaller
+      - run: python -m pytest -q
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: python scripts/package_worker.py
+      - run: python scripts/smoke_worker.py
+      - run: npm run tauri:build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-development-${{ matrix.os }}
+          path: src-tauri/target/release/bundle/

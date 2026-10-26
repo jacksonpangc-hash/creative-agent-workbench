@@ -1,0 +1,28 @@
+[package]
+name = "creative-agent-desktop"
+version = "0.5.5"
+description = "Local ecommerce creative strategy workspace"
+edition = "2021"
+default-run = "creative-agent-desktop"
+license = "AGPL-3.0-only"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+url = "2"
+getrandom = "0.3"
+serde_json = "1"
+sha2 = "=0.10.9"
+zeroize = "=1.9.1"
+
+[[bin]]
+name = "creative-browser-host"
+path = "src/bin/creative-browser-host.rs"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+keyring = { version = "=3.6.3", default-features = false, features = ["apple-native"] }
+
+[target.'cfg(windows)'.dependencies]
+keyring = { version = "=3.6.3", default-features = false, features = ["windows-native"] }

@@ -1,0 +1,5 @@
+{
+  "required": true,
+  "channel": "commercial",
+  "note": "Template only. Bundle as commercial-release.json only with the matching validated commercial-license.json."
+}

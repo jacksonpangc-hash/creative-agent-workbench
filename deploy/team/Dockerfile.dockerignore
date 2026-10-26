@@ -1,0 +1,19 @@
+# Send only explicit build inputs; local credentials/data never enter context.
+**
+!package.json
+!package-lock.json
+!vite.config.ts
+!tsconfig*.json
+!index.html
+!pyproject.toml
+!uv.lock
+!LICENSE
+!README.md
+!ui/
+!ui/**
+!src/
+!src/**
+**/__pycache__/
+**/node_modules/
+**/.env
+**/*.sqlite*

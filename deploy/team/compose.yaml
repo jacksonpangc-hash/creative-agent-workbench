@@ -1,0 +1,83 @@
+name: creative-team
+services:
+  proxy:
+    image: caddy:2.10-alpine
+    ports: ["443:443", "80:80"]
+    environment:
+      TEAM_HOST: ${TEAM_HOST:?Set a DNS hostname with HTTPS}
+      OIDC_HOST: ${OIDC_HOST:-identity.example.invalid}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      team:
+        ipv4_address: 172.30.0.2
+    depends_on: [api]
+    restart: unless-stopped
+  db:
+    image: postgres:17.6-bookworm
+    environment:
+      POSTGRES_DB: creative
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    secrets: [postgres_password, runtime_password]
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/10-runtime.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d creative"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [team]
+    restart: unless-stopped
+  migrate:
+    build: {context: ../.., dockerfile: deploy/team/Dockerfile}
+    entrypoint: ["python", "-m", "creative_agent.team_admin", "--admin-dsn-file", "/run/secrets/admin_dsn", "migrate"]
+    secrets: [admin_dsn]
+    networks: [team]
+    depends_on:
+      db: {condition: service_healthy}
+    restart: "no"
+  api: &runtime
+    build: {context: ../.., dockerfile: deploy/team/Dockerfile}
+    environment:
+      TEAM_PUBLIC_ORIGIN: https://${TEAM_HOST:?Set TEAM_HOST}
+      TEAM_OIDC_ISSUER: ${TEAM_OIDC_ISSUER:?Set the HTTPS OIDC issuer}
+      TEAM_OIDC_JWKS_URL: ${TEAM_OIDC_JWKS_URL:?Set the HTTPS OIDC JWKS URL}
+      TEAM_OIDC_AUDIENCE: ${TEAM_OIDC_AUDIENCE:?Set the OIDC access token audience}
+      TEAM_OIDC_CLIENT_ID: ${TEAM_OIDC_CLIENT_ID:-}
+      TEAM_OIDC_AUTHORIZATION_ENDPOINT: ${TEAM_OIDC_AUTHORIZATION_ENDPOINT:-}
+      TEAM_OIDC_TOKEN_ENDPOINT: ${TEAM_OIDC_TOKEN_ENDPOINT:-}
+      TEAM_PROXY_IP: 172.30.0.2
+    secrets: [runtime_dsn, vault_master_key]
+    volumes: ["media_data:/data"]
+    networks: [team]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+  worker:
+    <<: *runtime
+    command: ["worker"]
+
+networks:
+  team:
+    ipam:
+      config: [{subnet: 172.30.0.0/24}]
+volumes:
+  postgres_data:
+  media_data:
+  caddy_data:
+  caddy_config:
+secrets:
+  postgres_password: {file: ./private/postgres_password}
+  runtime_password: {file: ./private/runtime_password}
+  runtime_dsn: {file: ./private/runtime_dsn}
+  admin_dsn: {file: ./private/admin_dsn}
+  vault_master_key: {file: ./private/vault_master_key}

@@ -1,0 +1,10 @@
+{
+  "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+  "source_sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+  "derived_sha256": "0e8b1768fd4f7bd8ab94a07af4af986fa5966baaec7cb16b674d808b947126d8",
+  "license": "SIL Open Font License 1.1",
+  "changes": "Static weight400 instance, family renamed Creative Sans SC to avoid reserved source family use. Original copyright retained.",
+  "build_tool": "fontTools4.67.0",
+  "glyph_coverage": 30890,
+  "size": 10595904
+}

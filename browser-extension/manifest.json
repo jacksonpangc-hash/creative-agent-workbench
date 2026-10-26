@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "创意工作台 · 保存参考",
+  "version": "0.5.4",
+  "description": "主动保存当前抖音、快手页面选中的公开参考到本机项目，不读取Cookie或其他标签页。",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "nativeMessaging"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}

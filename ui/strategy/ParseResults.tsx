@@ -1,0 +1,26 @@
+import {useState} from 'react';
+import type {Fragment} from '../media/LinkedMediaDetails';
+type Item=Record<string,any>;
+const clock=(ms:number)=>`${Math.floor(ms/60000).toString().padStart(2,'0')}:${Math.floor(ms/1000%60).toString().padStart(2,'0')}`;
+const stateName:Record<string,string>={not_observed:'未观察',insufficient:'信息不足',not_applicable:'不适用'};
+const basisName:Record<string,string>={observed:'已观察',inferred:'推断',recommended:'建议'};
+function Cell({cell,definition,legacy}:{cell:Item|undefined,definition:Item,legacy?:any}){
+ if(cell&&cell.state&&cell.state!=='available')return <span className="muted">{stateName[cell.state]||'信息不足'}</span>;
+ const value=cell?cell.value:legacy;
+ if(value==null)return <span className="muted">信息不足</span>;
+ const text=Array.isArray(value)?value.map(v=>typeof v==='object'?JSON.stringify(v):String(v)).join('、'):typeof value==='object'?JSON.stringify(value):String(value);
+ return <><span>{text}{definition.unit?' '+definition.unit:''}</span>{cell?.basis&&<small className="cell-basis">{basisName[cell.basis]||cell.basis}</small>}</>;
+}
+export type ParseContinuation={parse_id:string,version:number,asset_ids:string[],selected_segments:Fragment[],question:string};
+export default function ParseResults({record,onAsset,onEvidence,onContinue}:{record:Item,onAsset:(id:string)=>void,onEvidence:(fragment:Fragment)=>void,onContinue?:(value:ParseContinuation)=>void}){
+ const [view,setView]=useState('overall'),[chosen,setChosen]=useState<Record<string,boolean>>({});
+ const toggle=(key:string)=>setChosen(v=>({...v,[key]:!v[key]}));
+ const selections=record.rows.flatMap((r:Item)=>chosen[r.asset_id]?[{asset_id:r.asset_id}]:r.scenes?.flatMap((v:Item,n:number)=>chosen[r.asset_id+':'+n]?[{asset_id:r.asset_id,...v}]:[])||[]);
+ const continueTask=()=>{const segments=selections.filter((r:Item)=>Number.isFinite(r.start_ms)&&Number.isFinite(r.end_ms)).map((r:Item)=>({asset_id:r.asset_id,start_ms:r.start_ms,end_ms:r.end_ms,observation:r.description||'',provenance:'sampled_frames' as const}));onContinue?.({parse_id:record.id,version:record.version||record.template_snapshot?.version||1,asset_ids:[...new Set<string>(selections.map((r:Item)=>r.asset_id))],selected_segments:segments,question:'参考所选拆解，写一条完整拍摄脚本。'});};
+ const definitions:Item[]=record.template_snapshot?.definitions||record.fields.map((name:string)=>({field_id:name,name,level:'overall'}));
+ const overall=definitions.filter(d=>d.level!=='shot'),shot=definitions.filter(d=>d.level==='shot');
+ return <section className="parse-results" aria-label="画面解析结果"><div className="result-view-tabs" role="tablist" aria-label="解析结果视图"><button role="tab" aria-selected={view==='overall'} onClick={()=>setView('overall')}>整体对比</button><button role="tab" aria-selected={view==='shot'} onClick={()=>setView('shot')}>逐镜拆解</button></div>{record.template_snapshot&&<p className="fine">{record.template_snapshot.title||'解析模板'}{record.template_snapshot.version?' · v'+record.template_snapshot.version:''} · 字段与依据随结果保存</p>}
+ {view==='overall'?<div className="table-wrap"><table><thead><tr><th>素材 / 观察方式</th>{overall.map(d=><th key={d.field_id}>{d.name}</th>)}</tr></thead><tbody>{record.rows.map((row:Item,i:number)=><tr key={i}><td>{onContinue&&<input type="checkbox" aria-label={`选入${row.title}`} checked={!!chosen[row.asset_id]} onChange={()=>toggle(row.asset_id)}/>}<button className="text-button" onClick={()=>onAsset(row.asset_id)}>{row.title}</button><small>{row.provenance==='native_video'?'原生视频':row.provenance==='image'?'图片':row.provenance==='subtitle'?'口播文字稿':'抽样帧'}</small>{row.observed_timestamps_ms?.length>0&&<p className="fine">实际观察时间：{row.observed_timestamps_ms.map(clock).join(' / ')}</p>}</td>{overall.map(d=><td key={d.field_id}><Cell cell={row.cells?.[d.field_id]} definition={d} legacy={row.fields?.[d.name]}/></td>)}</tr>)}</tbody></table></div>:<div className="shot-results">{record.rows.map((row:Item,i:number)=><section key={i}><h3><button className="text-button" onClick={()=>onAsset(row.asset_id)}>{row.title}</button></h3>{!row.scenes?.length?<p className="muted">此结果没有逐镜记录，不能推断未观察画面。</p>:<div className="table-wrap"><table><thead><tr><th>源片段时间</th><th>画面描述</th>{shot.map(d=><th key={d.field_id}>{d.name}</th>)}</tr></thead><tbody>{row.scenes.map((scene:Item,n:number)=><tr key={n}><td>{onContinue&&<input type="checkbox" aria-label={`选入${row.title} ${clock(scene.start_ms)}–${clock(scene.end_ms)}`} checked={!!chosen[row.asset_id+':'+n]} onChange={()=>toggle(row.asset_id+':'+n)}/>}<button className="text-button" aria-label={`${row.title} · ${clock(scene.start_ms)}–${clock(scene.end_ms)}`} onClick={()=>onEvidence({asset_id:row.asset_id,start_ms:scene.start_ms,end_ms:scene.end_ms,observation:scene.description||'',provenance:row.provenance==='native_video'?'native_video':'sampled_frames'})}>{clock(scene.start_ms)}–{clock(scene.end_ms)}</button></td><td>{scene.description||<span className="muted">未观察</span>}</td>{shot.map(d=><td key={d.field_id}><Cell cell={scene.cells?.[d.field_id]} definition={d} legacy={scene.fields?.[d.name]}/></td>)}</tr>)}</tbody></table></div>}</section>)}</div>}
+ {onContinue&&<div className="inline"><button className="primary" disabled={!selections.length} onClick={continueTask}>用所选内容继续创作</button><span className="fine">先带入草稿，可继续改要求。</span></div>}
+ </section>
+}

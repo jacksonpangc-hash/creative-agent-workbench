@@ -1,0 +1,835 @@
+{
+  "$defs": {
+    "AnalysisField": {
+      "additionalProperties": false,
+      "properties": {
+        "field_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Field Id",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "type": {
+          "default": "text",
+          "enum": [
+            "text",
+            "enum",
+            "list",
+            "number",
+            "evidence"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "level": {
+          "default": "overall",
+          "enum": [
+            "overall",
+            "shot"
+          ],
+          "title": "Level",
+          "type": "string"
+        },
+        "basis": {
+          "default": "inferred",
+          "enum": [
+            "observed",
+            "inferred",
+            "recommended"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "maxLength": 2000,
+          "title": "Description",
+          "type": "string"
+        },
+        "unit": {
+          "default": "",
+          "title": "Unit",
+          "type": "string"
+        },
+        "options": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Options",
+          "type": "array"
+        },
+        "required": {
+          "default": false,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "field_id",
+        "name"
+      ],
+      "title": "AnalysisField",
+      "type": "object"
+    },
+    "AnalysisScope": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "minLength": 1,
+          "title": "Project Id",
+          "type": "string"
+        },
+        "source_kinds": {
+          "items": {
+            "enum": [
+              "own",
+              "inspiration",
+              "raw",
+              "finished",
+              "account",
+              "pushed",
+              "industry"
+            ],
+            "type": "string"
+          },
+          "title": "Source Kinds",
+          "type": "array"
+        },
+        "asset_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 200,
+          "title": "Asset Ids",
+          "type": "array"
+        },
+        "reference_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 200,
+          "title": "Reference Ids",
+          "type": "array"
+        },
+        "selected_segments": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "maxItems": 200,
+          "title": "Selected Segments",
+          "type": "array"
+        },
+        "group_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "title": "Group Ids",
+          "type": "array"
+        },
+        "discovery": {
+          "default": false,
+          "title": "Discovery",
+          "type": "boolean"
+        },
+        "date_basis": {
+          "default": "published",
+          "enum": [
+            "published",
+            "imported",
+            "statistics"
+          ],
+          "title": "Date Basis",
+          "type": "string"
+        },
+        "start_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Date"
+        },
+        "end_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Date"
+        },
+        "query": {
+          "default": "",
+          "title": "Query",
+          "type": "string"
+        },
+        "min_spend": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min Spend"
+        },
+        "min_roas": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min Roas"
+        },
+        "account_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Account Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "project_id"
+      ],
+      "title": "AnalysisScope",
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "fact_id": {
+          "default": "",
+          "title": "Fact Id",
+          "type": "string"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid Until"
+        },
+        "statement": {
+          "maxLength": 5000,
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        },
+        "source": {
+          "default": "",
+          "maxLength": 5000,
+          "title": "Source",
+          "type": "string"
+        },
+        "confirmed": {
+          "default": false,
+          "title": "Confirmed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "statement"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "EvidenceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "scene_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scene Id"
+        },
+        "start_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Ms"
+        },
+        "end_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Ms"
+        },
+        "observation": {
+          "default": "",
+          "title": "Observation",
+          "type": "string"
+        },
+        "provenance": {
+          "default": "metadata",
+          "enum": [
+            "metadata",
+            "subtitle",
+            "image",
+            "sampled_frames",
+            "native_video",
+            "report"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id"
+      ],
+      "title": "EvidenceRef",
+      "type": "object"
+    },
+    "OwnFootageRef": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "scene_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scene Id"
+        },
+        "start_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Ms"
+        },
+        "end_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Ms"
+        },
+        "observation": {
+          "default": "",
+          "title": "Observation",
+          "type": "string"
+        },
+        "provenance": {
+          "default": "metadata",
+          "enum": [
+            "metadata",
+            "subtitle",
+            "image",
+            "sampled_frames",
+            "native_video",
+            "report"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        },
+        "usage_mode": {
+          "default": "normal",
+          "enum": [
+            "normal",
+            "freeze_frame",
+            "slow_motion",
+            "loop"
+          ],
+          "title": "Usage Mode",
+          "type": "string"
+        },
+        "use_duration_ms": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Use Duration Ms"
+        },
+        "usage_note": {
+          "default": "",
+          "maxLength": 2000,
+          "title": "Usage Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id"
+      ],
+      "title": "OwnFootageRef",
+      "type": "object"
+    },
+    "ProductFacts": {
+      "additionalProperties": false,
+      "properties": {
+        "product_id": {
+          "default": "",
+          "title": "Product Id",
+          "type": "string"
+        },
+        "sku_id": {
+          "default": "",
+          "title": "Sku Id",
+          "type": "string"
+        },
+        "product": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Product",
+          "type": "string"
+        },
+        "audience": {
+          "default": "",
+          "maxLength": 5000,
+          "title": "Audience",
+          "type": "string"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "maxItems": 100,
+          "title": "Claims",
+          "type": "array"
+        },
+        "constraints": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Constraints",
+          "type": "array"
+        },
+        "price_and_promotion": {
+          "default": "",
+          "maxLength": 5000,
+          "title": "Price And Promotion",
+          "type": "string"
+        },
+        "promotion_valid_until": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Promotion Valid Until"
+        }
+      },
+      "required": [
+        "product"
+      ],
+      "title": "ProductFacts",
+      "type": "object"
+    },
+    "ScriptContent": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "objective": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Objective",
+          "type": "string"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/$defs/ScriptRow"
+          },
+          "maxItems": 300,
+          "minItems": 1,
+          "title": "Rows",
+          "type": "array"
+        },
+        "confirmed": {
+          "default": false,
+          "title": "Confirmed",
+          "type": "boolean"
+        },
+        "timing_estimated": {
+          "default": false,
+          "title": "Timing Estimated",
+          "type": "boolean"
+        },
+        "product_id": {
+          "default": "",
+          "title": "Product Id",
+          "type": "string"
+        },
+        "sku_id": {
+          "default": "",
+          "title": "Sku Id",
+          "type": "string"
+        },
+        "product_facts_snapshot": {
+          "additionalProperties": true,
+          "title": "Product Facts Snapshot",
+          "type": "object"
+        },
+        "selection_snapshot": {
+          "additionalProperties": true,
+          "title": "Selection Snapshot",
+          "type": "object"
+        },
+        "unresolved_items": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 300,
+          "title": "Unresolved Items",
+          "type": "array"
+        },
+        "validation_issues": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 300,
+          "title": "Validation Issues",
+          "type": "array"
+        },
+        "production_notes": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 300,
+          "title": "Production Notes",
+          "type": "array"
+        },
+        "usage_status": {
+          "default": "planned",
+          "enum": [
+            "planned",
+            "adopted",
+            "shot",
+            "rejected"
+          ],
+          "title": "Usage Status",
+          "type": "string"
+        },
+        "feedback_reason": {
+          "default": "",
+          "maxLength": 10000,
+          "title": "Feedback Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "objective",
+        "rows"
+      ],
+      "title": "ScriptContent",
+      "type": "object"
+    },
+    "ScriptRow": {
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "minimum": 0,
+          "title": "Start Ms",
+          "type": "integer"
+        },
+        "end_ms": {
+          "exclusiveMinimum": 0,
+          "title": "End Ms",
+          "type": "integer"
+        },
+        "dialogue": {
+          "default": "",
+          "maxLength": 10000,
+          "title": "Dialogue",
+          "type": "string"
+        },
+        "tone": {
+          "default": "",
+          "maxLength": 1000,
+          "title": "Tone",
+          "type": "string"
+        },
+        "visual": {
+          "default": "",
+          "maxLength": 10000,
+          "title": "Visual",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 10000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "references": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "maxItems": 20,
+          "title": "References",
+          "type": "array"
+        },
+        "own_references": {
+          "items": {
+            "$ref": "#/$defs/OwnFootageRef"
+          },
+          "maxItems": 20,
+          "title": "Own References",
+          "type": "array"
+        },
+        "subtitle": {
+          "default": "",
+          "maxLength": 10000,
+          "title": "Subtitle",
+          "type": "string"
+        },
+        "camera": {
+          "default": "",
+          "maxLength": 2000,
+          "title": "Camera",
+          "type": "string"
+        },
+        "props": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 50,
+          "title": "Props",
+          "type": "array"
+        },
+        "reshoot": {
+          "default": "",
+          "maxLength": 5000,
+          "title": "Reshoot",
+          "type": "string"
+        },
+        "reshoot_duration_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reshoot Duration Ms"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 50,
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "factual_claims": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "maxItems": 50,
+          "title": "Factual Claims",
+          "type": "array"
+        }
+      },
+      "required": [
+        "start_ms",
+        "end_ms"
+      ],
+      "title": "ScriptRow",
+      "type": "object"
+    },
+    "TaskSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "output_type": {
+          "default": "comparison",
+          "enum": [
+            "comparison",
+            "directions",
+            "scripts"
+          ],
+          "title": "Output Type",
+          "type": "string"
+        },
+        "count": {
+          "default": 1,
+          "maximum": 20,
+          "minimum": 1,
+          "title": "Count",
+          "type": "integer"
+        },
+        "target_duration_ms": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 3600000,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target Duration Ms"
+        },
+        "product_id": {
+          "default": "",
+          "title": "Product Id",
+          "type": "string"
+        },
+        "sku_id": {
+          "default": "",
+          "title": "Sku Id",
+          "type": "string"
+        },
+        "own_asset_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10000,
+          "title": "Own Asset Ids",
+          "type": "array"
+        },
+        "max_generation_rounds": {
+          "default": 1,
+          "maximum": 8,
+          "minimum": 1,
+          "title": "Max Generation Rounds",
+          "type": "integer"
+        },
+        "history_script_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 200,
+          "title": "History Script Ids",
+          "type": "array"
+        },
+        "constraints": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Constraints",
+          "type": "array"
+        }
+      },
+      "title": "TaskSpec",
+      "type": "object"
+    }
+  },
+  "anyOf": [
+    {
+      "$ref": "#/$defs/TaskSpec"
+    },
+    {
+      "$ref": "#/$defs/ScriptContent"
+    },
+    {
+      "$ref": "#/$defs/ProductFacts"
+    },
+    {
+      "$ref": "#/$defs/EvidenceRef"
+    },
+    {
+      "$ref": "#/$defs/AnalysisScope"
+    },
+    {
+      "$ref": "#/$defs/AnalysisField"
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://creative-agent.local/schemas/workbench-v21",
+  "title": "Creative workbench v2.1 runtime contracts",
+  "description": "Runtime-derived union. File/SKU/rights/version checks additionally enforced by services."
+}

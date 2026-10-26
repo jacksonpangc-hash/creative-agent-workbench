@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "provider": "clipcat_public_patterns",
+  "repository": "https://github.com/Clipcat-ai/awesome-tiktok-shop-video-prompts",
+  "commit": "6afd5abb040768c7cb41a70b835bb0711971941e",
+  "source_path": "data/prompts.jsonl",
+  "source_url": "https://github.com/Clipcat-ai/awesome-tiktok-shop-video-prompts/blob/6afd5abb040768c7cb41a70b835bb0711971941e/data/prompts.jsonl",
+  "upstream_sha256": "1ec9da8857fed927552b09fdf603a62262b145c4597508d1712a5620d5e68594",
+  "upstream_git_blob_sha1": "a8616d3cbe00495d037f2829ac89acfe26dc600e",
+  "upstream_bytes": 7405453,
+  "upstream_record_count": 647,
+  "content_file": "patterns.json",
+  "content_sha256": "af62612e2f10bab4757bceb22d2f3d3e0766cdf6030e3b195ebfbaa9f5188869",
+  "content_bytes": 710387,
+  "record_count": 647,
+  "projection_fields": [
+    "id",
+    "market",
+    "category",
+    "category_slug",
+    "video_type",
+    "duration_sec",
+    "hook",
+    "hooks",
+    "presenter",
+    "promo",
+    "pain_point",
+    "visuals",
+    "source",
+    "creator",
+    "published",
+    "clipcat_url"
+  ],
+  "license": "CC-BY-4.0",
+  "license_url": "https://github.com/Clipcat-ai/awesome-tiktok-shop-video-prompts/blob/6afd5abb040768c7cb41a70b835bb0711971941e/LICENSE",
+  "notice_url": "https://github.com/Clipcat-ai/awesome-tiktok-shop-video-prompts/blob/6afd5abb040768c7cb41a70b835bb0711971941e/NOTICE.md",
+  "attribution": "Prompts from Awesome TikTok Shop Video Prompts by Clipcat, licensed under CC BY 4.0.",
+  "modifications": [
+    "Projected only descriptive structural metadata and source attribution; removed titles, quoted or translated openings, voiceover fields, full prompts, and unverified ranking claims.",
+    "Omitted derived pain_point where its text duplicated or was contained in an excluded hook_line.",
+    "Original published values and nullable fields retained; no media or commercial metrics included."
+  ],
+  "omitted_pain_point_ids": [
+    "gb-home-668758"
+  ],
+  "reference_kind": "historical_creative_structure",
+  "not_performance_evidence": true,
+  "metrics_status": "not_provided",
+  "human_review_status": "not_individually_reviewed",
+  "source_video_verification": "not_run",
+  "source_snapshot_date": "2026-10-26",
+  "files": {
+    "LICENSE": {
+      "sha256": "5eebefd3682e32d661f307a28539b304e5e52fb1eb33ba214e61d7a57663e4f0"
+    },
+    "NOTICE.md": {
+      "sha256": "d8560ba9c9a2a4235f881117759e2bf61d93c3ce72079b7f94390ae545c0814e"
+    }
+  }
+}

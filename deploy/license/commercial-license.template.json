@@ -1,0 +1,5 @@
+{
+  "required": true,
+  "service_url": "REPLACE_WITH_REAL_HTTPS_ORIGIN",
+  "public_key": "REPLACE_WITH_OPERATOR_ED25519_PUBLIC_KEY_BASE64URL"
+}

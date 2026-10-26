@@ -1,0 +1,6 @@
+import {afterEach,expect,test,vi} from 'vitest';
+import {render,screen,fireEvent,cleanup,waitFor} from '@testing-library/react';
+import '@testing-library/jest-dom/vitest';
+import AnalysisPreferences from './settings/AnalysisPreferences';
+afterEach(()=>{cleanup();vi.unstubAllGlobals()});
+test('a previous project preference save cannot update the current project defaults',async()=>{let resolveSave!:(value:Response)=>void;const pending=new Promise<Response>(r=>{resolveSave=r});const saved=vi.fn();vi.stubGlobal('fetch',vi.fn(async(input:string,init:any)=>init?.method==='PUT'?pending:new Response(JSON.stringify({allow_external_references:input.includes('/a/'),default_binding_id:'',version:1}))));const props={models:[],currency:'CNY',onSaved:saved};const {rerender}=render(<AnalysisPreferences {...props} base="/projects/a"/>);await waitFor(()=>expect(screen.getByRole('checkbox')).toBeChecked());fireEvent.click(screen.getByRole('button',{name:'保存偏好'}));rerender(<AnalysisPreferences {...props} base="/projects/b"/>);await waitFor(()=>expect(screen.getByRole('checkbox')).not.toBeChecked());resolveSave(new Response(JSON.stringify({default_quote:'1',default_binding_id:'',version:2})));await new Promise(resolve=>setTimeout(resolve,10));expect(saved).not.toHaveBeenCalled();expect(screen.getByRole('checkbox')).not.toBeChecked()});

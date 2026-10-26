@@ -1,0 +1,614 @@
+[
+  {
+    "id": "method-01",
+    "type": "method",
+    "title": "先展示动作，再解释卖点",
+    "tags": [
+      "演示",
+      "卖点"
+    ],
+    "content": "让观众先看到产品怎样被使用，再用一句话解释这个动作解决了什么问题。\n\n适合使用方式能够被镜头清楚拍到的商品。\n\n动作和结果必须来自当前商品的实拍；不要把演示结果扩大成功效保证。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-02",
+    "type": "method",
+    "title": "用具体场景开头",
+    "tags": [
+      "开头",
+      "场景"
+    ],
+    "content": "从一个明确的时间、地点和动作切入，例如出门收拾包，而不是先报一串商品参数。\n\n适合用户能立刻认出使用时刻的商品。\n\n场景不能代替商品事实；画面没有出现的困扰应标为创作设定。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-03",
+    "type": "method",
+    "title": "把问题拍出来",
+    "tags": [
+      "痛点",
+      "开头"
+    ],
+    "content": "先拍一个可观察的小麻烦，再展示产品参与后动作怎样变化。保持前后拍摄条件一致。\n\n适合收纳、清洁、操作便利类表达。\n\n不能用不同条件制造虚假的前后对比。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-04",
+    "type": "method",
+    "title": "只讲一个主要卖点",
+    "tags": [
+      "卖点",
+      "节奏"
+    ],
+    "content": "为每条视频选一个主问题，其余信息只在帮助理解这个问题时加入。\n\n适合短时长素材或信息拥挤的原稿。\n\n删减信息不能删掉影响购买判断的重要使用条件。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-05",
+    "type": "method",
+    "title": "用手部动作解释尺寸",
+    "tags": [
+      "尺寸",
+      "演示"
+    ],
+    "content": "在同一画面放入实际商品和可信参照，配合手持、放入或展开动作说明大小。\n\n适合尺寸会影响使用方式的商品。\n\n最终尺寸仍需来自规格资料，镜头透视不能冒充测量。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-06",
+    "type": "method",
+    "title": "先回答一种购买顾虑",
+    "tags": [
+      "异议",
+      "问答"
+    ],
+    "content": "从评论或客服记录中选一个真实顾虑，直接展示回答需要的动作和细节。\n\n适合已有用户提问的商品。\n\n没有真实评论时用情境提问，不伪造买家留言。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-07",
+    "type": "method",
+    "title": "让使用顺序成为叙事",
+    "tags": [
+      "教程",
+      "结构"
+    ],
+    "content": "按第一次使用者的顺序安排开箱、准备、操作和收尾，保留必要步骤。\n\n适合操作有先后关系的商品。\n\n不要为压缩时长跳过安全或必要操作。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-08",
+    "type": "method",
+    "title": "对同一镜头换三种开头",
+    "tags": [
+      "开头",
+      "测试"
+    ],
+    "content": "主体演示保持相同，分别尝试场景提问、直接动作和结果先看，便于比较表达。\n\n适合已经有稳定产品演示素材的团队。\n\n测试时记录账号、时间和投流差异，不能把表现变化全部归于开头。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-09",
+    "type": "method",
+    "title": "用局部特写补充理解",
+    "tags": [
+      "镜头",
+      "特写"
+    ],
+    "content": "只在某个细节决定理解时切特写，随后回到整体，让观众知道细节的位置。\n\n适合结构、纹理和操作位置需要说明的商品。\n\n特写文件必须对应当前 SKU，不能混用相似款。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-10",
+    "type": "method",
+    "title": "先定结尾，再安排中段",
+    "tags": [
+      "结构",
+      "行动引导"
+    ],
+    "content": "确定观众看完后能做的一个动作，再检查前面是否提供了完成该判断的信息。\n\n适合中段信息多但结尾突然的原稿。\n\n行动引导不能附带没有依据的稀缺、优惠或销量。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-11",
+    "type": "method",
+    "title": "把参数翻译成使用判断",
+    "tags": [
+      "参数",
+      "卖点"
+    ],
+    "content": "先说明用户要做什么，再引用经过确认、与这个任务有关的参数。\n\n适合规格多但用户不知道怎样选的商品。\n\n保留单位和适用条件；不要把容量等参数推导成未验证效果。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-12",
+    "type": "method",
+    "title": "让口播与画面各做一件事",
+    "tags": [
+      "口播",
+      "画面"
+    ],
+    "content": "口播解释为什么值得注意，画面展示具体是什么，避免两边重复同一串形容词。\n\n适合已有演示画面、需要补台词的素材。\n\n画面与台词冲突时先修正事实，不靠剪辑掩盖。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-13",
+    "type": "method",
+    "title": "把一句长话拆成两个镜头",
+    "tags": [
+      "节奏",
+      "台词"
+    ],
+    "content": "按一个判断一个动作拆句，在动作变化处切镜，不按固定三秒机械分镜。\n\n适合长句堆叠、演员难以试读的稿件。\n\n时长应试读或明确估算，不能把字数直接当最终秒数。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-14",
+    "type": "method",
+    "title": "展示真实使用限制",
+    "tags": [
+      "信任",
+      "条件"
+    ],
+    "content": "主动交代影响使用的条件，并拍出合适场景，帮助观众判断是否适合自己。\n\n适合有尺寸、材质或使用环境限制的商品。\n\n条件来自说明书或已确认资料，不自行编造限制或保证。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-15",
+    "type": "method",
+    "title": "把包装与商品分开讲",
+    "tags": [
+      "包装",
+      "开箱"
+    ],
+    "content": "开箱只解释实际包装和取出方式，商品体验另用对应画面，不把包装精美等同产品效果。\n\n适合食品、礼品和日用品。\n\n包装、规格和配件都要对应当前版本。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-16",
+    "type": "method",
+    "title": "从完整动作中保留关键段",
+    "tags": [
+      "片段",
+      "剪辑"
+    ],
+    "content": "先看完整动作，找出理解所必需的开始、变化和结束，再选片段。\n\n适合长原片复用。\n\n不能剪掉会改变含义的前提或失败过程。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-17",
+    "type": "method",
+    "title": "比较表达结构而非抄台词",
+    "tags": [
+      "参考",
+      "改写"
+    ],
+    "content": "把参考拆成问题、证据、解释和引导，再用本商品事实与拍摄条件重新组织。\n\n适合跨账号或跨品类借鉴。\n\n参考的品牌、功效、价格和人物经历不能带入本商品。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-18",
+    "type": "method",
+    "title": "用不同人物视角展开",
+    "tags": [
+      "方向",
+      "叙事"
+    ],
+    "content": "围绕同一真实事实，分别从初次使用者、准备者和使用过程讲述者出发设计表达。\n\n适合需要多条差异脚本的任务。\n\n人物身份属于创作设定；不要伪装真实客户评价或专家背书。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-19",
+    "type": "method",
+    "title": "先确认已有镜头，再写动作",
+    "tags": [
+      "自有镜头",
+      "补拍"
+    ],
+    "content": "列出可以回看的原片片段，再安排台词与动作；缺少的关键画面直接列入补拍。\n\n适合要求减少补拍的创作。\n\n没有找到文件时不能写成已有镜头，通用环境镜头也不能冒充商品特写。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-20",
+    "type": "method",
+    "title": "用一个反例说明选择条件",
+    "tags": [
+      "反例",
+      "选择"
+    ],
+    "content": "举一个不适合的使用情境，再展示当前商品真正适合的条件。\n\n适合受众选择比泛化卖点更重要的商品。\n\n反例不应贬低无关品牌，也不能捏造竞品缺陷。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-21",
+    "type": "method",
+    "title": "把试用感受写成个人感受",
+    "tags": [
+      "食品",
+      "感受"
+    ],
+    "content": "用人物当下可表达的感受配合实拍细节，将主观体验和客观参数分开。\n\n适合口感、触感等体验表达。\n\n个人感受不写成人人相同，不推导健康或治疗功效。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-22",
+    "type": "method",
+    "title": "让字幕承担必要信息",
+    "tags": [
+      "字幕",
+      "可读性"
+    ],
+    "content": "把必要规格或条件放在对应画面，口播仍保持自然；给阅读留出时间。\n\n适合有规格信息又要保留画面节奏的短片。\n\n字幕必须和资料一致，不能小字隐藏重要限制。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-23",
+    "type": "method",
+    "title": "用相同条件做功能对照",
+    "tags": [
+      "对照",
+      "演示"
+    ],
+    "content": "记录同一动作、光线、背景和测量方法，再比较可观察差异。\n\n适合确有可核实对照材料的任务。\n\n无合格证据时提出待拍实验，不生成已经完成的效果结论。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-24",
+    "type": "method",
+    "title": "把直播引流说清楚",
+    "tags": [
+      "直播",
+      "引流"
+    ],
+    "content": "解释直播里会具体展示或回答什么，并让短片本身提供一段有用内容。\n\n适合引导观看直播的素材。\n\n直播时间、价格和活动必须经过确认且在有效期内。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-25",
+    "type": "method",
+    "title": "让开头兑现到结尾",
+    "tags": [
+      "开头",
+      "兑现"
+    ],
+    "content": "逐句检查开头提出的问题是否在视频中得到实际回答，无法兑现就收窄开头。\n\n适合悬念大、正文与承诺不一致的稿件。\n\n不以虚构冲突或未提供的实验结果制造悬念。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-26",
+    "type": "method",
+    "title": "按真实拍摄条件选方向",
+    "tags": [
+      "拍摄",
+      "方向"
+    ],
+    "content": "先确认人物、场地、道具与可用镜头，再筛掉无法执行的方案。\n\n适合小团队或单人拍摄。\n\n缺资料时只补问会改变方案的条件，不强制填写完整表单。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-27",
+    "type": "method",
+    "title": "把补拍清单写成动作",
+    "tags": [
+      "补拍",
+      "执行"
+    ],
+    "content": "每项列出人物或主体、动作、画面范围和需要的道具，说明补这段的用途。\n\n适合脚本交给拍摄人员执行。\n\n不要只写高级感、氛围感等无法检查的要求。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-28",
+    "type": "method",
+    "title": "保留被拒绝方向的原因",
+    "tags": [
+      "反馈",
+      "复用"
+    ],
+    "content": "记录用户不采用的具体原因，在下一轮选择性排除相同结构或不合适条件。\n\n适合持续为同一商品出稿。\n\n弃用不等于商业失败，采用也不等于已证明转化有效。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-29",
+    "type": "method",
+    "title": "把复盘变成下轮假设",
+    "tags": [
+      "复盘",
+      "测试"
+    ],
+    "content": "先列数据中的观察，再指出可能解释和下一次只改变什么，让结论保持可检验。\n\n适合有真实发布记录和可比窗口的任务。\n\n小样本、投流和账号差异必须说明，缺失数据不补零。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "method-30",
+    "type": "method",
+    "title": "从参考里保留反例",
+    "tags": [
+      "策略",
+      "反例"
+    ],
+    "content": "寻找与主流结构不同却仍值得讨论的素材，说明它适用什么条件和证据缺口。\n\n适合策略探索和寻找新方向。\n\n不因少数高互动就推断普遍有效，保存来源和统计日期。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-01",
+    "type": "example",
+    "title": "绿豆饼：从分享动作开始",
+    "category": "食品",
+    "tags": [
+      "食品",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n同事分享的演练场景；商品外观与口感均为虚构示例，正式使用前核实。\n\n00–04 秒｜画面：两个人分开一块示例绿豆饼｜台词：这一块，我们分着试试。\n04–10 秒｜画面：拍掰开与内馅特写｜台词：先看切面，再说各自的感受。\n10–17 秒｜画面：人物描述自己的感受｜台词：我更在意这口吃起来的层次。\n17–24 秒｜画面：回到完整商品和实物标签｜台词：规格和配料，请看实物标签。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-02",
+    "type": "example",
+    "title": "绿豆饼：包装到分食",
+    "category": "食品",
+    "tags": [
+      "食品",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n产品 A 为演练道具，不构成真实品牌、成分或保质期说明。\n\n00–04 秒｜画面：包装放在桌上，手指示意打开位置｜台词：先看看怎么取出来。\n04–10 秒｜画面：完整拍取出动作｜台词：这一段把打开和取出拍完整。\n10–17 秒｜画面：装盘与分食｜台词：分到盘里，大家各拿一份。\n17–25 秒｜画面：标签与摆盘同框｜台词：具体规格，以你购买的款式为准。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-03",
+    "type": "example",
+    "title": "饮品：让使用时刻带路",
+    "category": "食品",
+    "tags": [
+      "食品",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练商品 B；冷热、冲泡方式与配料信息正式创作时须另行确认。\n\n00–05 秒｜画面：收拾桌面，拿出杯子｜台词：忙完这一段，给自己留个喝水的间隙。\n05–12 秒｜画面：按示例说明摆好杯子和包装｜台词：先把需要的东西放齐。\n12–19 秒｜画面：演练一个完整使用动作｜台词：做法要按实际商品说明来。\n19–27 秒｜画面：人物坐下，桌面恢复整洁｜台词：这一条先把使用场景说清楚。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-04",
+    "type": "example",
+    "title": "零食：回答怎么分装",
+    "category": "食品",
+    "tags": [
+      "食品",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练商品 C，没有真实顾客评论、营养或销量依据。\n\n00–04 秒｜画面：桌上两个空容器｜台词：出门带一份，桌上留一份。\n04–11 秒｜画面：按示例包装进行分装｜台词：先演示这一份怎么拿取。\n11–18 秒｜画面：镜头交代两份实际大小｜台词：镜头给参照，规格仍看标签。\n18–25 秒｜画面：展示合盖与收拾动作｜台词：储存方式按商品标注执行。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-05",
+    "type": "example",
+    "title": "工具：一个完整使用步骤",
+    "category": "个护",
+    "tags": [
+      "个护",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练工具 D；不涉及治疗、美白、防脱等未验证功效。\n\n00–05 秒｜画面：工具与说明放在同一画面｜台词：第一次拿到，先找这个操作位置。\n05–12 秒｜画面：手部指向按键或部件｜台词：把实际部件看清楚。\n12–20 秒｜画面：按演练说明完成一次动作｜台词：这一段不省略必要步骤。\n20–28 秒｜画面：放回工具并给说明特写｜台词：适用条件，要对照真实说明。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-06",
+    "type": "example",
+    "title": "收纳：先确认是否放得下",
+    "category": "个护",
+    "tags": [
+      "个护",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练收纳道具 E；尺寸不是实际销售规格。\n\n00–05 秒｜画面：随身包与物品同框｜台词：这次先回答，出门怎么带。\n05–12 秒｜画面：按真实拍摄比例放入道具｜台词：把放进去的动作拍完整。\n12–20 秒｜画面：合上并展示包内位置｜台词：不只看特写，也看整体位置。\n20–27 秒｜画面：标记需要核实的尺寸｜台词：购买前核对实际尺寸与款式。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-07",
+    "type": "example",
+    "title": "日常用品：动作与口播分工",
+    "category": "个护",
+    "tags": [
+      "个护",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练用品 F；人物为创作设定，不能用作真实用户证言。\n\n00–04 秒｜画面：人物开始一次日常整理｜台词：我想把这一步安排得更清楚。\n04–11 秒｜画面：手部完成商品相关动作｜台词：画面演示做法。\n11–19 秒｜画面：局部细节转回整体｜台词：口播只解释为什么注意这里。\n19–26 秒｜画面：说明书与商品同框｜台词：不确定的使用条件先查说明。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-08",
+    "type": "example",
+    "title": "工具：先回答怎么清理",
+    "category": "个护",
+    "tags": [
+      "个护",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练工具 G；可拆洗与用水条件正式创作前须有说明书依据。\n\n00–05 秒｜画面：展示操作结束后的工具｜台词：用完以后，收尾怎么做？\n05–12 秒｜画面：对照演练说明指出清理位置｜台词：这段先把位置交代清楚。\n12–20 秒｜画面：用符合演练设定的动作清理｜台词：正式拍摄只演示允许的清理方式。\n20–28 秒｜画面：展示归位动作｜台词：条件写清楚，比一句都能洗更可靠。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-09",
+    "type": "example",
+    "title": "收纳：先拍一个小麻烦",
+    "category": "家居",
+    "tags": [
+      "家居",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练收纳产品 H，不声称真实效率或空间提升比例。\n\n00–05 秒｜画面：寻找桌上的物品｜台词：每次要用，总得先找一下。\n05–12 秒｜画面：完整展示整理动作｜台词：这次试着给它安排固定位置。\n12–20 秒｜画面：从整体画面再次取出物品｜台词：同一个位置，再拿一次。\n20–28 秒｜画面：展示实际摆放条件｜台词：能不能放下，还要看你的尺寸。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-10",
+    "type": "example",
+    "title": "清洁：提出一个待拍对照",
+    "category": "家居",
+    "tags": [
+      "家居",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练工具 I；本稿是拍摄测试方案，没有完成清洁效果实验。\n\n00–05 秒｜画面：准备两块同类演练表面｜台词：我们想比较同样条件下的动作。\n05–12 秒｜画面：展示待确认的统一条件｜台词：表面、用量和次数先保持一致。\n12–20 秒｜画面：拍摄计划中的操作｜台词：这一段需要真实拍摄，不能先写结果。\n20–29 秒｜画面：列出记录位置｜台词：拍完后，再按实际画面补结论。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-11",
+    "type": "example",
+    "title": "厨房用品：按使用顺序说",
+    "category": "家居",
+    "tags": [
+      "家居",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练产品 J；承重、耐温和材质不在此示例中确认。\n\n00–05 秒｜画面：人物准备一次厨房操作｜台词：先把这一轮要用的东西摆好。\n05–12 秒｜画面：展示摆放或展开动作｜台词：按顺序看，比同时讲参数容易懂。\n12–20 秒｜画面：保留关键操作细节｜台词：具体条件要从真实说明中补齐。\n20–28 秒｜画面：收拾并展示归位｜台词：结尾把收尾动作也交代清楚。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  },
+  {
+    "id": "example-12",
+    "type": "example",
+    "title": "日用品：明确适合的条件",
+    "category": "家居",
+    "tags": [
+      "家居",
+      "演练"
+    ],
+    "synthetic": true,
+    "content": "这是合成拍摄演练，不是已验证的商品脚本或经营案例。\n\n演练产品 K；对照条件与限制是拍摄设定，需商品资料核实。\n\n00–05 秒｜画面：展示两种演练摆放位置｜台词：先别急着选，看看准备放在哪里。\n05–12 秒｜画面：拍出一个合适位置｜台词：在这个设定里，关键是实际尺寸。\n12–20 秒｜画面：示意另一种需要再确认的位置｜台词：换到这里，就要重新测量。\n20–29 秒｜画面：商品与尺寸记录同框｜台词：先核对条件，再决定是否适合。",
+    "provenance": "original_ai_assisted",
+    "review_state": "pending",
+    "reviewed_by": null,
+    "reviewed_at": null
+  }
+]
